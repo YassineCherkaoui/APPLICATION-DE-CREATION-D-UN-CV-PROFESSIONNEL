@@ -38,6 +38,13 @@
       </div>
     </div>
 
+    <button
+      type="button"
+      class="btn btn-warning btn-lg btn-block mt-5 redirectBtn"
+      @click="goToDownload"
+    >
+      Go to download page
+    </button>
   </div>
 </template>
 
@@ -63,6 +70,9 @@ export default {
     };
   },
   methods: {
+        goToDownload: function () {
+      this.$router.push({ path: "download" });
+    },
   },
 };
 </script>

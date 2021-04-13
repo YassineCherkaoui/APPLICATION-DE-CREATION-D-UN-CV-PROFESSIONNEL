@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import CV from "../components/cv.vue";
-
+import Download from "../components/Download.vue";
 
 Vue.use(VueRouter);
 
@@ -16,7 +16,12 @@ const routes = [
     path: "/cv",
     name: "cv",
     component: CV,
-  }
+  },
+  {
+    path: "/download",
+    name: "Download",
+    component: Download,
+  },
 ];
 
 const router = new VueRouter({

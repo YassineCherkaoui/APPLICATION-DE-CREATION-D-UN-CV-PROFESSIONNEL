@@ -2,7 +2,7 @@
   <div>
     <form class="container">
       <div class="form-group">
-        <label for="name">name</label>
+        <label for="name">Full Name</label>
         <input
           type="text"
           class="form-control"
@@ -10,12 +10,9 @@
           aria-describedby="emailHelp"
           v-model="name"
         />
-        <small id="emailHelp" class="form-text text-muted"
-          >We'll never share your information with anyone else.</small
-        >
       </div>
       <div class="form-group">
-        <label for="description">description</label>
+        <label for="description">Description</label>
         <textarea
           class="form-control"
           id="description"
