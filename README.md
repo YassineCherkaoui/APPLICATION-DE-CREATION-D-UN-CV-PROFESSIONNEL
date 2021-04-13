@@ -1,7 +1,7 @@
 # APPLICATION-DE-CREATION-D-UN-CV-PROFESSIONNEL
 Création d'un CV professionnel
 
-![Test Image 4](https://github.com/tograh/testrepository/3DTest.png)
+![screenshot](https://github.com/YassineCherkaoui/APPLICATION-DE-CREATION-D-UN-CV-PROFESSIONNEL/blob/main/Screenshot/vue.png)
 
 # Contexte du projet
 Dans le cadre de recherche d'emploi vous aurez besoin de créer un bon cv professionnel qui va présenter l'ensemble de votre parcour professionnel
