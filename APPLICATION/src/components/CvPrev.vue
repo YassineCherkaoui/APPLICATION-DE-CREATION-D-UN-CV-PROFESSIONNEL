@@ -3,7 +3,12 @@
     <div class="container">
       <div class="personnelInfo">
         <h2>{{ description }}</h2>
-        <h1>{{ name }}</h1>
+        <h1>
+          {{ name }}
+          <button type="button" class="btn btn-primary" @click="goToDownload">
+            Go to download page
+          </button>
+        </h1>
 
         <div class="info">
           <p><b-icon icon="chat-left-dots"></b-icon> {{ email }}</p>
@@ -29,7 +34,21 @@
         <br />
       </div>
 
+      <div class="experience">
+        <h3>EDUCATION</h3>
+        <div class="line"></div>
 
+        <div>
+          <div class="contents">
+            <h4>{{ university }}</h4>
+            <h5>
+              {{ branch }} |
+              <span>{{ from }} - {{ to }}</span>
+            </h5>
+          </div>
+          <br />
+        </div>
+      </div>
 
       <div class="personnelInfo">
         <h1>ABOUT ME</h1>
@@ -37,20 +56,12 @@
         <p class="aboutMe">{{ about }}</p>
       </div>
     </div>
-
-    <button
-      type="button"
-      class="btn btn-warning btn-lg btn-block mt-5 redirectBtn"
-      @click="goToDownload"
-    >
-      Go to download page
-    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "cv",
+  name: "ResumeView",
   data() {
     return {
       name: this.$store.state.name,
@@ -61,16 +72,22 @@ export default {
       adress: this.$store.state.adress,
       github: this.$store.state.github,
 
-      company : this.$store.state.company,
-      post : this.$store.state.post,
-      postdisc : this.$store.state.postdisc,
-      from : this.$store.state.form,
-      to : this.$store.state.to,
-  about : this.$store.state.about,
+      company: this.$store.state.company,
+      post: this.$store.state.post,
+      postdisc: this.$store.state.postdisc,
+
+      from: this.$store.state.from,
+      to: this.$store.state.to,
+
+      university: this.$store.state.university,
+
+      branch: this.$store.state.branch,
+
+      about: this.$store.state.about,
     };
   },
   methods: {
-        goToDownload: function () {
+    goToDownload: function () {
       this.$router.push({ path: "download" });
     },
   },
@@ -86,7 +103,7 @@ $primary_color: black;
   font-family: $primary_font;
   .personnelInfo {
     padding: 2% 8%;
-  background-color: black;
+    background-color: black;
     h2,
     h1 {
       color: white;
@@ -115,11 +132,9 @@ $primary_color: black;
     .aboutMe {
       color: white;
     }
-
   }
-  .container{
+  .container {
     max-width: 100%;
-    height: 50vh;
   }
   .experience {
     background-color: #f9f9f9;
@@ -133,11 +148,7 @@ $primary_color: black;
       &::after {
         border-radius: 0;
         height: 2px;
-        background: linear-gradient(
-          90deg,
-          rgba(80, 217, 15, 1) 0%,
-          rgba(2, 0, 36, 1) 100%
-        );
+        background-color: black;
       }
     }
     .contents {

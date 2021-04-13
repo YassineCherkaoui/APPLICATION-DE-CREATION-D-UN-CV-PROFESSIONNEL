@@ -19,6 +19,9 @@ export default new Vuex.Store({
     from: "",
     to: "",
 
+    university: "",
+    branch: "",
+
     about: "",
   },
   mutations: {
@@ -42,12 +45,6 @@ export default new Vuex.Store({
       state.github = value;
     },
 
-
-    setAbout(state, value) {
-      state.about = value;
-    },
-
-
     setCompany(state, value) {
       state.company = value;
     },
@@ -60,12 +57,20 @@ export default new Vuex.Store({
     setFrom(state, value) {
       state.from = value;
     },
+
     setTo(state, value) {
       state.to = value;
     },
 
-
-
+    setUniversity(state, value) {
+      state.university = value;
+    },
+    setBranch(state, value) {
+      state.branch = value;
+    },
+    setAbout(state, value) {
+      state.about = value;
+    },
   },
   modules: {},
 });

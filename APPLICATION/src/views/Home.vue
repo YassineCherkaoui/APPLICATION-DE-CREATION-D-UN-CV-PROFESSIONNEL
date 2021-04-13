@@ -21,7 +21,7 @@
         ></textarea>
       </div>
 
- <div class="form-group">
+      <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" v-model="email" />
       </div>
@@ -43,61 +43,84 @@
         <input type="email" class="form-control" id="github" v-model="github" />
       </div>
 
+      <div class="form-group">
+        <label for="COMPANY">COMPANY</label>
+        <input
+          type="text"
+          class="form-control"
+          id="COMPANY"
+          v-model="company"
+        />
+      </div>
+      <div class="form-group">
+        <label for="POST">POST</label>
+        <input type="text" class="form-control" id="POST" v-model="post" />
+      </div>
+      <div class="form-group">
+        <label for="POST_DESC">POST DESC</label>
+        <input
+          type="text"
+          class="form-control"
+          id="POST_DESC"
+          v-model="postdisc"
+        />
+      </div>
 
-<div class="form-group">
-          <label for="company">COMPANY</label>
-          <input
-            type="text"
-            class="form-control"
-            id="company"
-            v-model="company"
-          />
-        </div>
-        <div class="form-group">
-          <label for="post">POST</label>
-          <input
-            type="text"
-            class="form-control"
-            id="post"
-            v-model="post"
-          />
-        </div>
-<div class="form-group">
-          <label for="postdisc">POST DESC</label>
-          <input
-            type="text"
-            class="form-control"
-            id="postdisc"
-            v-model="postdisc"
-          />
-        </div>
-         <div class="row">
-          <div class="col-md">
-            <div class="form-group">
-              <label for="from">FROM</label>
-              <input
-                type="number"
-                class="form-control"
-                id="from"
-                v-model="from"
-              />
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="form-group">
-              <label for="TO">TO</label>
-              <input
-                type="number"
-                class="form-control"
-                id="to"
-                v-model="to"
-              />
-            </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="form-group">
+            <label for="FROM">FROM</label>
+            <input
+              type="number"
+              class="form-control"
+              id="FROM"
+              v-model="from"
+            />
           </div>
         </div>
+        <div class="col-md">
+          <div class="form-group">
+            <label for="TO">TO</label>
+            <input type="number" class="form-control" id="TO" v-model="to" />
+          </div>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label for="COMPANY">UNIVERSITY</label>
+        <input
+          type="text"
+          class="form-control"
+          id="COMPANY"
+          v-model="university"
+        />
+      </div>
+      <div class="form-group">
+        <label for="POST">BRANCH</label>
+        <input type="text" class="form-control" id="POST" v-model="branch" />
+      </div>
 
-        <div class="form-group">
+      <div class="row">
+        <div class="col-md">
+          <div class="form-group">
+            <label for="FROM">FROM</label>
+            <input
+              type="number"
+              class="form-control"
+              id="FROM"
+              v-model="from"
+            />
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-group">
+            <label for="TO">TO</label>
+            <input type="number" class="form-control" id="TO" v-model="to" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label for="about">about me</label>
         <textarea
           class="form-control"
@@ -107,9 +130,10 @@
         ></textarea>
       </div>
 
-      <button class="btn btn-warning" @click.prevent="submit">
-        PERSONNEL INFORMATION
-      </button>
+      <button class="btn btn-primary" @click.prevent="submit">SUBMIT</button>
+
+      <!-- {{ myName }} <br>
+        {{ myDesc }} -->
     </form>
   </div>
 </template>
@@ -119,20 +143,20 @@ export default {
   name: "NameAndDesc",
   data() {
     return {
-      // myName: "",
-      // myDesc: ""
-            myName: "",
+      myName: "",
       myDesc: "",
       myEmail: "",
       myPhone: "",
       myAdress: "",
       myGitHub: "",
-
-                company: "",
-          post: "",
-          postdisc: "",
-          from: "",
-          to: "",
+      myCompany: "",
+      myPost: "",
+      myPostdisc: "",
+      myFrom: "",
+      myTo: "",
+      myUniversity: "",
+      myBranch: "",
+      myAbout: "",
     };
   },
   computed: {
@@ -146,10 +170,14 @@ export default {
         this.$store.commit("setName", value);
       },
     },
-
-
-
-
+    desc: {
+      get() {
+        return this.$store.state.desc;
+      },
+      set(value) {
+        this.$store.commit("setDesc", value);
+      },
+    },
     email: {
       get() {
         return this.$store.state.email;
@@ -166,7 +194,7 @@ export default {
         this.$store.commit("setPhone", value);
       },
     },
-     adress: {
+    adress: {
       get() {
         return this.$store.state.adress;
       },
@@ -174,7 +202,7 @@ export default {
         this.$store.commit("setAdress", value);
       },
     },
-        github: {
+    github: {
       get() {
         return this.$store.state.github;
       },
@@ -182,26 +210,7 @@ export default {
         this.$store.commit("setGitHub", value);
       },
     },
-    desc: {
-      get() {
-        return this.$store.state.desc;
-      },
-      set(value) {
-        this.$store.commit("setDesc", value);
-      },
-    },
-    about: {
-      get() {
-        return this.$store.state.about;
-      },
-      set(value) {
-        this.$store.commit("setAbout", value);
-      },
-    },
-
-
-
-     company: {
+    company: {
       get() {
         return this.$store.state.company;
       },
@@ -209,7 +218,7 @@ export default {
         this.$store.commit("setCompany", value);
       },
     },
-     post: {
+    post: {
       get() {
         return this.$store.state.post;
       },
@@ -217,7 +226,7 @@ export default {
         this.$store.commit("setPost", value);
       },
     },
-        postdisc: {
+    postdisc: {
       get() {
         return this.$store.state.postdisc;
       },
@@ -225,8 +234,7 @@ export default {
         this.$store.commit("setPostdisc", value);
       },
     },
-
-        from: {
+    from: {
       get() {
         return this.$store.state.from;
       },
@@ -234,8 +242,7 @@ export default {
         this.$store.commit("setFrom", value);
       },
     },
-
-        to: {
+    to: {
       get() {
         return this.$store.state.to;
       },
@@ -244,10 +251,33 @@ export default {
       },
     },
 
+    university: {
+      get() {
+        return this.$store.state.university;
+      },
+      set(value) {
+        this.$store.commit("setUniversity", value);
+      },
+    },
 
+    branch: {
+      get() {
+        return this.$store.state.branch;
+      },
+      set(value) {
+        this.$store.commit("setBranch", value);
+      },
+    },
+
+    about: {
+      get() {
+        return this.$store.state.about;
+      },
+      set(value) {
+        this.$store.commit("setAbout", value);
+      },
+    },
   },
-
-
   methods: {
     submit: function () {
       this.myName = this.$store.state.name;
@@ -257,17 +287,18 @@ export default {
       this.myAdress = this.$store.state.adress;
       this.myGitHub = this.$store.state.github;
 
+      this.myCompany = this.$store.state.company;
+      this.myPost = this.$store.state.post;
+      this.myPostdisc = this.$store.state.postdisc;
+      this.myFrom = this.$store.state.from;
+      this.myTo = this.$store.state.to;
 
-      this.company = this.$store.state.company;
-      this.post = this.$store.state.post;
-      this.postdisc = this.$store.state.postdisc;
-      this.from = this.$store.state.from;
-      this.to = this.$store.state.to;
+      this.myUniversity = this.$store.state.university;
+      this.myBranch = this.$store.state.branch;
 
+      this.myAbout = this.$store.state.about;
 
-
-
-      this.$router.push({ path: "cv" });
+      this.$router.push({ path: "CvPrev" });
     },
   },
 };
